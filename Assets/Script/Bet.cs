@@ -54,14 +54,24 @@ public class Bet : MonoBehaviour
 
     }
 
-    public void betbutton()
+    public void betBy(int betvalue)
     {
-        if (GameManager.medal > 0 && gameManagerScript.start != true)
+        if (GameManager.medal - betvalue >= 0 && gameManagerScript.start != true)
         {
-            betnum += 1;//ベット数を増やす
-            GameManager.medal--;//ベット数を増やしたのでメダルを減らす
+            betnum += betvalue;//ベット数を増やす
+            GameManager.medal -= betvalue;//ベット数を増やしたのでメダルを減らす
         }
     }
+    public void betOne()
+    {
+        betBy(1);
+    }
+    public void betTen()
+    {
+        betBy(10);
+    }
+
+
     IEnumerator wait()
     {
         yield return new WaitForSeconds(0.2f);
@@ -81,6 +91,6 @@ public class Bet : MonoBehaviour
                 normalodds += UnityEngine.Random.Range(2.0f, 3.0f);
                 break;
         }
-        normalodds += (4.5f - myhorseScript.abilityValue) * 6.0f;
+        normalodds += (8.5f - myhorseScript.abilityValue) * 5.0f;
     }
 }
