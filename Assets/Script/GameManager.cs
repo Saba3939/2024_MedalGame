@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         }
         //メダルの表示を変更
         medalText = medalObj.GetComponent<TextMeshProUGUI>();
-        medalText.SetText("めだる: " + medal);
+        medalText.SetText("えさ: " + medal);
 
         //レースが終わったかを判断するプログラム
         if (order.Count == horse_Max && allGoal == false && Reable == false)

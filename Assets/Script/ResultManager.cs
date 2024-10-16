@@ -12,7 +12,6 @@ public class ResultManager : MonoBehaviour
     private TextMeshProUGUI TMP;
     private bool Reable = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManagerObj.GetComponent<GameManager>();
@@ -20,7 +19,6 @@ public class ResultManager : MonoBehaviour
         Reable = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameManager.Reable == true && Reable == false)
@@ -31,7 +29,7 @@ public class ResultManager : MonoBehaviour
             HorseObj[gameManager.order[0] - 1].SetActive(true);
             HorseObj[gameManager.order[1] - 1].SetActive(true);
             HorseObj[gameManager.order[2] - 1].SetActive(true);
-            TMP.SetText("めだる" + gameManager.addMedalNum + "まいゲット!");
+            TMP.SetText("えさ" + gameManager.addMedalNum + "こゲット!");
             Reable = true;
         }
     }

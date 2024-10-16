@@ -44,7 +44,18 @@ public class Bet : MonoBehaviour
         gameManagerScript = gamemanagerob.GetComponent<GameManager>(); //ゲームマネージャーコンポーネントを取得
         OddsTxt = OddsText.GetComponent<TextMeshProUGUI>();//オッズテキストを取得
         odds = (float)Math.Round(normalodds, 1, MidpointRounding.AwayFromZero);
-        OddsTxt.SetText("x" + odds);   //オッズを表示する(オッズは最初から変わることがないため)
+        if (odds < 3.0f)
+        {
+            OddsTxt.SetText("いいね");
+        }
+        else if (odds < 6.5f)
+        {
+            OddsTxt.SetText("まあまあ");
+        }
+        else
+        {
+            OddsTxt.SetText("だめかも");
+        }
     }
 
     void Update()
